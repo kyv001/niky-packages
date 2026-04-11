@@ -1,6 +1,4 @@
-/*
-  Adapted from https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/sp/splayer/package.nix
-*/
+# Adapted from https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/sp/splayer/package.nix
 {
   lib,
   stdenv,
