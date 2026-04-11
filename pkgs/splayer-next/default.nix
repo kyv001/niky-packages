@@ -47,7 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "SPlayer-Dev";
     repo = "SPlayer-Next";
-    rev = "3eb96412fda33cf2acbf2be6e3619d78a11377d8"; # No releases yet
+    rev = "b1fbe7a5b38201aa979b67fd389dec6c36dc1b56"; # No releases yet
     fetchSubmodules = false;
     hash = "sha256-8a3KJhspsa18cczh/WpSDt2ZctENfbUyhvg+9BXPOy4=";
   };
@@ -187,4 +187,15 @@ stdenv.mkDerivation (finalAttrs: {
       extraConfig.X-KDE-Protocols = "orpheus";
     })
   ];
+  meta = {
+    description = "Simple Netease Cloud Music player, Next version";
+    homepage = "https://github.com/SPlayer-Dev/SPlayer-Next";
+    license = lib.licenses.agpl3Only; # Inferred from original version. Next version has no visible license.
+    mainProgram = "splayer-next";
+    platforms = lib.platforms.linux;
+    sourceProvenance = with lib.sourceTypes; [
+      fromSource
+    ];
+  };
+
 })
