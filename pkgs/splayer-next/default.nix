@@ -47,7 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
     repo = "SPlayer-Next";
     rev = "b1fbe7a5b38201aa979b67fd389dec6c36dc1b56"; # No releases yet
     fetchSubmodules = false;
-    hash = "sha256-8a3KJhspsa18cczh/WpSDt2ZctENfbUyhvg+9BXPOy4=";
+    hash = "sha256-LjYFulz1SeGIePrPSbx4oBQF5m6yOwEc3yZ2LQehNB0==";
   };
 
   pnpmDeps = fetchPnpmDeps {
