@@ -45,9 +45,9 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "SPlayer-Dev";
     repo = "SPlayer-Next";
-    rev = "e81951f1ed78f5fa0168293d77e7f68fe06ab10d"; # No releases yet
+    rev = "c0b4e71c8a95e94633daa2e3b1d65a5fe4044f56"; # No releases yet
     fetchSubmodules = false;
-    hash = "sha256-53+1up+KJ6Xnu5E2wK5J2qzza7HPNPDF4Uu0ogPhAG0=";
+    hash = "sha256-zkByMwDvG7Vc89FEYh/luIw/vTgxVY1MdjePjHiNbKo=";
   };
 
   pnpmDeps = fetchPnpmDeps {
@@ -58,7 +58,7 @@ stdenv.mkDerivation (finalAttrs: {
       ;
     inherit pnpm;
     fetcherVersion = 2;
-    hash = "sha256-LPS6pfMHlXik2ibJ6y/ieReuMPGaef5YDQlTi1+Mqds=";
+    hash = "sha256-tpi5n4N1vup34ieKqyz6hU3NLuLaCTddRL4bp0GV+/E=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
