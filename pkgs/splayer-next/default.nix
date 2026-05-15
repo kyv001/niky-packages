@@ -33,6 +33,7 @@
   makeDesktopItem,
   # nix-update-script,
   removeReferencesTo,
+  autoPatchelfHook,
 }:
 let
   electron = electron_39;
@@ -85,6 +86,7 @@ stdenv.mkDerivation (finalAttrs: {
     ffmpeg
     libclang
     stdenv.cc
+    autoPatchelfHook
   ];
 
 
@@ -114,6 +116,13 @@ stdenv.mkDerivation (finalAttrs: {
     # Workaround for https://github.com/electron/electron/issues/31121
     substituteInPlace electron/main/utils/nativeLoader.ts \
       --replace-fail 'process.resourcesPath' "'$out/share/splayer-next/resources'"
+
+    # ffmpeg-next static feature needs all transitive deps' static libs,
+    # which nixpkgs ffmpeg doesn't fully provide. Remove static → dynamic link.
+    substituteInPlace native/audio-engine/Cargo.toml \
+      --replace-fail '"static",' ""
+
+
   '';
 
   buildPhase = ''
@@ -161,6 +170,10 @@ stdenv.mkDerivation (finalAttrs: {
       --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}" \
       --set-default ELECTRON_FORCE_IS_PACKAGED 1 \
       --set-default ELECTRON_IS_DEV 0 \
+      --prefix LD_PRELOAD : "${ffmpeg.lib}/lib/libavformat.so" \
+      --prefix LD_PRELOAD : "${ffmpeg.lib}/lib/libavcodec.so" \
+      --prefix LD_PRELOAD : "${ffmpeg.lib}/lib/libavutil.so" \
+      --prefix LD_PRELOAD : "${ffmpeg.lib}/lib/libswresample.so" \
       --inherit-argv0
 
     runHook postInstall
