@@ -3,7 +3,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  pnpm_10_29_2,
+  pnpm_10,
   fetchPnpmDeps,
   pnpmConfigHook,
   nodejs,
@@ -37,18 +37,18 @@
 }:
 let
   electron = electron_39;
-  pnpm = pnpm_10_29_2;
+  pnpm = pnpm_10;
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "splayer-next";
-  version = "1.0.0-20260513";
+  version = "1.0.0-20260517";
 
   src = fetchFromGitHub {
     owner = "SPlayer-Dev";
     repo = "SPlayer-Next";
-    rev = "d75cbdd00d2499469d2f7be8600367799edfcecc"; # No releases yet
+    rev = "1411672a4171e05e1a765f1bbbfaae5b9399eae6"; # No releases yet
     fetchSubmodules = false;
-    hash = "sha256-v1zW1Q1aKxyVd2ugWum/a/L2DHTcLPnXB38B+AtO5ko=";
+    hash = "sha256-N3QVvgs8uTRuW6wSRFgAg10nmFoea99ojuj0vC5NcZo=";
   };
 
   pnpmDeps = fetchPnpmDeps {
@@ -58,7 +58,7 @@ stdenv.mkDerivation (finalAttrs: {
       src
       ;
     inherit pnpm;
-    fetcherVersion = 2;
+    fetcherVersion = 3;
     hash = "sha256-k8+mH+0n7ZAo0N/xyelrwX7lyv29znhepl/szG1AlK8=";
   };
 
