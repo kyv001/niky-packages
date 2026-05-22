@@ -7,7 +7,7 @@
   fetchPnpmDeps,
   pnpmConfigHook,
   nodejs,
-  electron_39,
+  electron_41,
   rustPlatform,
   cargo,
   rustc,
@@ -36,7 +36,7 @@
   autoPatchelfHook,
 }:
 let
-  electron = electron_39;
+  electron = electron_41;
   pnpm = pnpm_10;
 in
 stdenv.mkDerivation (finalAttrs: {
@@ -46,9 +46,9 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "SPlayer-Dev";
     repo = "SPlayer-Next";
-    rev = "1411672a4171e05e1a765f1bbbfaae5b9399eae6"; # No releases yet
+    rev = "1eddd07d5c53e2ad27d0fae571b662f500dafb22"; # No releases yet
     fetchSubmodules = false;
-    hash = "sha256-N3QVvgs8uTRuW6wSRFgAg10nmFoea99ojuj0vC5NcZo=";
+    hash = "sha256-IxpofLyIccKYE0CscuHpxeIBPVLKk8QPMJRHVwZLRXw=";
   };
 
   pnpmDeps = fetchPnpmDeps {
@@ -59,7 +59,7 @@ stdenv.mkDerivation (finalAttrs: {
       ;
     inherit pnpm;
     fetcherVersion = 3;
-    hash = "sha256-k8+mH+0n7ZAo0N/xyelrwX7lyv29znhepl/szG1AlK8=";
+    hash = "sha256-QrXGDRCeZP/UO9o1ASwWW6hh95HHn9hyDHruxpAutPI=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
