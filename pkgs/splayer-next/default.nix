@@ -28,7 +28,7 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "splayer-next";
-  version = "1.0.0-20260726";
+  version = "1.0.0-20260728";
 
   src = fetchFromGitHub {
     owner = "SPlayer-Dev";
