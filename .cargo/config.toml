@@ -1,9 +1,0 @@
-[source.vendored-source-registry-0]
-directory = "/data/Programming/niky-packages/splayer-next-1.0.0-20260806-vendor/source-registry-0"
-
-[source.crates-io]
-replace-with = "vendored-source-registry-0"
-    [target."x86_64-unknown-linux-gnu"]
-"linker" = "/nix/store/l5qkpzsr4gxvksh45b3nhxbkyr5cviar-gcc-wrapper-15.3.0/bin/cc"
-"rustflags" = [ "-Cforce-frame-pointers=yes" ]
-
